@@ -1,0 +1,6 @@
+{
+    "require": {
+        "apache/thrift": "1.0.x-dev",
+        "react/http": "^0.7.4"
+    }
+}
