@@ -11,7 +11,11 @@ error_log(print_r($_REQUEST, true), 3, "/tmp/test.log");
 
 $map = range(1, 100);
 
-foreach (range(1, 3000000) as $i) {
+$page = $_REQUEST['page'] - 1;
+$pageSize = 200000;
+$offset = $pageSize * $page;
+
+foreach (range($offset + 1, $offset + $pageSize) as $i) {
     $rand_keys = array_rand($map, 1);
     echo sprintf('%d,test%d,%d', $i, $i, $map[$rand_keys] ) . "\n";
 }

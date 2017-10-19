@@ -8,11 +8,17 @@ ini_set("display_errors", "on");
 
 error_log(print_r($_REQUEST, true), 3, "/tmp/test.log");
 
+$sources = [];
+
+foreach (range(1, 50) as $i) {
+    $sources[] = sprintf('http://web:80/test1.php?page=%d', $i);
+}
+
 $schema = [
     'web' => [
         [
             'name' => 'test1',
-            'sources' => ['http://web:80/test1.php'],
+            'sources' => $sources,
             'columns' => [
                 [
                     'name' => 'id',
